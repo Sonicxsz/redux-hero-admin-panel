@@ -1,10 +1,10 @@
 import React from "react";
-import { heroesDelete } from "../../actions";
+import { heroesDelete } from "../heroesList/heroesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useHttp } from "../../hooks/http.hook";
 const HeroesListItem = ({name, description, element, id}) => {
     const dispatch = useDispatch();
-    const {heroes} = useSelector(state => state.heroesReducer)
+    const {heroes} = useSelector(state => state.heroes)
     
 const removeHero = (id, arr) =>{
     return arr.filter((i) =>{

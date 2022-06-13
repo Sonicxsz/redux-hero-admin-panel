@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { filtering } from "../../actions";
-import {useMemo} from 'react'
+import { filtering } from "../heroesFilters/filterSlice";
+
 // Задача для этого компонента:
 // Фильтры должны формироваться на основании загруженных данных
 // Фильтры должны отображать только нужных героев при выборе
@@ -11,9 +11,9 @@ import {useMemo} from 'react'
 
 
 const HeroesFilters = () => {
-    const {filters, filtered} = useSelector(state => state.filterReducer)
+    const {filters, filtered} = useSelector(state => state.filter)
     const dispatch = useDispatch()
-
+    
     return (
         <div className="card shadow-lg mt-4">
             <div className="card-body">
