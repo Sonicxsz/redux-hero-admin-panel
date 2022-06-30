@@ -1,27 +1,57 @@
 {
-  "heroes": [],
+  "heroes": [
+    {
+      "name": "Арби умарович Хизриев",
+      "text": "jnee",
+      "element": "fire",
+      "id": "710d8cba-21fe-443d-8811-618451821e4d"
+    },
+    {
+      "name": "efwfw",
+      "text": "fewf",
+      "element": "",
+      "id": "9cbef46f-2280-4d59-a55c-a13560b78239"
+    },
+    {
+      "name": "fewfew",
+      "text": "fewfwe",
+      "element": "wind",
+      "id": "307c6c69-5688-4ce5-a73c-11fdb098eead"
+    },
+    {
+      "name": "fewfw",
+      "text": "efwfw",
+      "element": "earth",
+      "id": "a2a52229-c8cc-49e4-8466-2e38a6fd0a8b"
+    }
+  ],
   "filters": [
     {
+      "id": "adcd",
       "value": "all",
       "label": "Вcе",
       "clazz": "btn btn-outline-dark"
     },
     {
+      "id": "adcdds",
       "value": "fire",
       "label": "Огонь",
       "clazz": "btn btn-danger"
     },
     {
+      "id": "adcdew",
       "value": "water",
       "label": "Вода",
       "clazz": "btn btn-primary"
     },
     {
+      "id": "adc22d",
       "value": "wind",
       "label": "Воздух",
       "clazz": "btn btn-success"
     },
     {
+      "id": "ad131cd",
       "value": "earth",
       "label": "Земля",
       "clazz": "btn btn-secondary"

@@ -1,12 +1,11 @@
-import {useHttp} from '../../hooks/http.hook';
+
 import { useEffect } from 'react';
-import { createSelector } from 'reselect';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
-import {fetchHeroes } from '../../actions';
+import { fetchHeroes } from './heroesSlice';
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
-
+import { filteredHeroesSelector } from './heroesSlice';
 // Задача для этого компонента:
 // При клике на "крестик" идет удаление персонажа из общего состояния
 // Усложненная задача:
@@ -18,28 +17,17 @@ const HeroesList = () => {
     const {heroesLoadingStatus} = useSelector(state => state.heroes)  
 
     const dispatch = useDispatch();
-    const {request} = useHttp();
+    
 
     useEffect(() => {
-        dispatch(fetchHeroes(request));
+        dispatch(fetchHeroes());
         // eslint-disable-next-line
     }, []);
-    const filteredHeroesSelector = createSelector(
-        (state) => state.filter.filtered,
-        (state) => state.heroes.heroes,
-        (filter, heroes) =>{
-            if(filter === 'all'){
-                console.log('sa')
-                return heroes
-            }else{
-                return heroes.filter(i =>{
-                    return i.element === filter
-                })
-            }
-        }
-    );
+   
+
+   
     
-    const filterHeroes = useSelector(filteredHeroesSelector)
+    const filterHeroes = useSelector(state => filteredHeroesSelector(state))
 
     if (heroesLoadingStatus === "loading") {
         return <Spinner/>;
@@ -65,7 +53,7 @@ const HeroesList = () => {
     const elements = renderHeroesList(filterHeroes);
     return (
         <ul>
-            {elements}
+           {elements}
         </ul>
     )
 }

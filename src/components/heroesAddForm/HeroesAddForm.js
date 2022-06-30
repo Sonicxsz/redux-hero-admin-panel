@@ -3,7 +3,9 @@ import {useState} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { heroesAdd } from "../heroesList/heroesSlice";
 import { useHttp } from "../../hooks/http.hook";
-import { useDispatch, useSelector } from "react-redux";
+import { selectAll } from "../heroesFilters/filterSlice";
+import { useDispatch } from "react-redux";
+import store from "../../store";
 // Задача для этого компонента:
 // Реализовать создание нового героя с введенными данными. Он должен попадать
 // в общее состояние и отображаться в списке + фильтроваться
@@ -19,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 const HeroesAddForm = () => {
-    const {filters} = useSelector(state => state.filter)
+    const filters = selectAll(store.getState())
     let [inputs, setInputs] = useState({
         name: '',
         text: '',

@@ -6,11 +6,7 @@ const HeroesListItem = ({name, description, element, id}) => {
     const dispatch = useDispatch();
     const {heroes} = useSelector(state => state.heroes)
     
-const removeHero = (id, arr) =>{
-    return arr.filter((i) =>{
-        return i.id !== id
-    })
-}
+
    
     const {request} = useHttp();
     
@@ -51,8 +47,8 @@ const removeHero = (id, arr) =>{
             <span className="position-absolute top-0 start-100 translate-middle badge border rounded-pill bg-light">
                 <button type="button" className="btn-close btn-close" aria-label="Close"
                 onClick={() =>{
-                    let newHeroes = removeHero(id, heroes)
-                    dispatch(heroesDelete(newHeroes))
+                    
+                    dispatch(heroesDelete(id))
                     request(`http://localhost:3001/heroes/${id}`, 'DELETE')
                 }}
                 ></button>
